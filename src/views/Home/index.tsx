@@ -91,7 +91,8 @@ const HomeView = () => {
         dispatch(doSuccess(response));
         formikHelpers.resetForm();
       } catch (error) {
-        dispatch(doError(error));
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        dispatch(doError(error as any));
       } finally {
         formikHelpers.setSubmitting(false);
       }

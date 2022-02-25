@@ -12,9 +12,7 @@ import ExternalLink from './ExternalLink';
 import NextLink from 'next/link';
 import { Bold } from './StyleUtils';
 import styled from 'styled-components';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import TelegramIcon from '@material-ui/icons/Telegram';
 
 const TitleLink = styled(Link)`
   &:hover {
@@ -33,19 +31,26 @@ const MainContent = styled.main`
 const Layout: React.FC = ({ children }) => {
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
-      <AppBar variant="outlined" position="relative" color="inherit">
+      <AppBar
+        variant="outlined"
+        position="relative"
+        color="inherit"
+        style={{
+          backgroundColor: '#fff',
+        }}
+      >
         <Toolbar>
           <NextLink href="/" passHref>
             <TitleLink variant="h6" color="primary">
-              <Bold>OnURL</Bold>
+              <Bold>Apha</Bold>
             </TitleLink>
           </NextLink>
           <Box flexGrow={1} />
           <IconButton
             component={ExternalLink}
-            href="https://github.com/onderonur/onurl"
+            href="https://t.me/rocketsmsgateway"
           >
-            <GitHubIcon />
+            <TelegramIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -73,21 +78,9 @@ const Layout: React.FC = ({ children }) => {
         <Spacer flexDirection="row" spacing={1}>
           <IconButton
             component={ExternalLink}
-            href="https://linkedin.com/in/onderonur"
+            href="https://t.me/rocketsmsgateway"
           >
-            <LinkedInIcon />
-          </IconButton>
-          <IconButton
-            component={ExternalLink}
-            href="https://twitter.com/onderonur_"
-          >
-            <TwitterIcon />
-          </IconButton>
-          <IconButton
-            component={ExternalLink}
-            href="https://github.com/onderonur"
-          >
-            <GitHubIcon />
+            <TelegramIcon />
           </IconButton>
         </Spacer>
       </Box>
