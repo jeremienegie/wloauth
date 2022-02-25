@@ -15,7 +15,8 @@ const getInputValidationSchema = Yup.object().shape({
 const extractGetInput = async (req: NextApiRequest) => {
   try {
     await getInputValidationSchema.validate(req.query);
-  } catch (err) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
     throw createError(422, err.message);
   }
   const { alias } = req.query;
@@ -38,7 +39,8 @@ const isAbsoluteUrl = (url: string) => {
 const extractPostInput = async (req: NextApiRequest) => {
   try {
     await shortUrlInputSchema.validate(req.body);
-  } catch (err) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
     throw createError(422, err.message);
   }
   let { url } = req.body;
