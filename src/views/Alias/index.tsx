@@ -70,7 +70,8 @@ AliasView.getInitialProps = async ({ res, query }) => {
     const { url } = data;
     pageRedirect(res, url, { replace: true });
   } catch (err) {
-    const { response } = err;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { response } = err as any;
     if (response) {
       const { data } = response;
       error = `${data.statusCode}: ${data.message}`;
