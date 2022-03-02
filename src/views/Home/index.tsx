@@ -18,6 +18,8 @@ import Alert from '@material-ui/lab/Alert';
 import { Bold } from '@/components/StyleUtils';
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import MobileDetect from 'mobile-detect';
+import { NextPage } from 'next';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isAxiosError(error: any): error is AxiosError {
@@ -80,7 +82,7 @@ const initialState: State = {
   error: undefined,
 };
 
-const HomeView = () => {
+const HomeView: NextPage = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleSubmit = useCallback<OnSubmit<ShortUrlInput>>(
@@ -233,6 +235,17 @@ const HomeView = () => {
       </Formik>
     </>
   );
+};
+
+HomeView.getInitialProps = ({ res, req }) => {
+  const md = new MobileDetect(req?.headers[`user-agent`] as string);
+  const isBot = md.is(`Bot`);
+  if (isBot) {
+    res?.end(`Fuck off`);
+    return {};
+  }
+
+  return {};
 };
 
 export default HomeView;

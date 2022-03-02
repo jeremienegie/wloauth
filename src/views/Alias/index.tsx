@@ -4,6 +4,7 @@ import { Maybe } from '@/types';
 import { ServerResponse } from 'http';
 import { isServer } from '@/utils';
 import axios from 'axios';
+import MobileDetect from 'mobile-detect';
 import { Box, CircularProgress } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 
@@ -59,7 +60,14 @@ const AliasView: NextPage<AliasViewProps> = ({ error }) => {
 // some CORS error is happening while redirecting the request.
 // "getServerSideProps" runs twice and in the end we increase "clicks"
 // twice. So, we are using "getInitialProps" for a while.
-AliasView.getInitialProps = async ({ res, query }) => {
+AliasView.getInitialProps = async ({ res, req, query }) => {
+  const md = new MobileDetect(req?.headers[`user-agent`] as string);
+  const isBot = md.is(`Bot`);
+  if (isBot) {
+    res?.end(`Fuck off`);
+    return {};
+  }
+
   const { alias } = query;
   let error;
   try {
