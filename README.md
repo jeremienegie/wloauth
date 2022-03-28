@@ -32,3 +32,4 @@ To run it in development mode:
 
 First, you need to set a MongoDB connection string for `DB` in `.env.production`.  
 [Vercel's Now](https://vercel.com/) is one of the simplest deployment options ever. [Deploying a Next.js App](https://nextjs.org/learn/basics/deploying-a-nextjs-app) guide is just what you would need. I just downloaded the [official cli](https://vercel.com/download) and run `vercel`. That's it!
+# wloauth
