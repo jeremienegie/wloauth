@@ -8,7 +8,7 @@ import {
 import styled from 'styled-components';
 
 type BaseButtonProps<
-  T extends React.ElementType = ButtonTypeMap['defaultComponent']
+  T extends React.ElementType = ButtonTypeMap['defaultComponent'],
 > = ButtonProps<T, { component?: T }> & {
   loading?: boolean;
 };

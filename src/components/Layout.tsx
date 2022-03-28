@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react';
 import {
   AppBar,
   Box,
   Divider,
   IconButton,
   Link,
-  Toolbar
-} from "@material-ui/core";
-import Spacer from "./Spacer";
-import ExternalLink from "./ExternalLink";
-import NextLink from "next/link";
-import { Bold } from "./StyleUtils";
-import styled from "styled-components";
-import TelegramIcon from "@material-ui/icons/Telegram";
+  Toolbar,
+} from '@material-ui/core';
+import Spacer from './Spacer';
+import ExternalLink from './ExternalLink';
+import NextLink from 'next/link';
+import { Bold } from './StyleUtils';
+import styled from 'styled-components';
+import TelegramIcon from '@material-ui/icons/Telegram';
 
 const TitleLink = styled(Link)`
   &:hover {
@@ -36,13 +36,13 @@ const Layout: React.FC = ({ children }) => {
         position="relative"
         color="inherit"
         style={{
-          backgroundColor: "#fff"
+          backgroundColor: '#fff',
         }}
       >
         <Toolbar>
           <NextLink href="/" passHref>
             <TitleLink variant="h6" color="primary">
-              <Bold>Buxx</Bold>
+              <Bold>WL O Auth</Bold>
             </TitleLink>
           </NextLink>
           <Box flexGrow={1} />
